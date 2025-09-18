@@ -1,0 +1,130 @@
+/* CART 351 Journal Styles */
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+ }
+
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.8em;
+    background-clip: text;
+}
+
+.nav-back {
+    background: linear-gradient(45deg, #74b9ff, #0984e3);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.nav-back:hover {
+    transform: translateY(-2px);
+}
+
+.journal-entry {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 35px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    font-weight: bold;
+}
+
+.journal-entry.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.entry-header {
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.entry-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.entry-date {
+    background: linear-gradient(45deg, #74b9ff, #0984e3);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.entry-content {
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+.entry-content p {
+    margin-bottom: 15px;
+}
+
+.entry-content h3 {
+    color: #0984e3;
+    margin: 20px 0 10px;
+    font-size: 1.3em;
+}
+
+.inspiration-quote {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    border-radius: 10px;
+    padding: 20px;
+    border-left: 4px solid #74b9ff;
+    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container { padding: 15px; }
+    .journal-entry { padding: 25px; }
+    .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    h1 { font-size: 2.2em; }
+}
