@@ -212,6 +212,7 @@ def loading_animation(message="Fetching air quality data..."):
             time.sleep(0.02)
             progress.update(task, advance=1)
 
+
 def get_state_color(aqi):
     """
     Determine display color based on AQI value.
