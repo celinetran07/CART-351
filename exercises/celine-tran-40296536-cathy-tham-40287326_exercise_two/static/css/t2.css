@@ -1,0 +1,51 @@
+/* Form styling */
+.simple-form {
+    padding: 10px;
+    background-color: rgb(246, 227, 245);
+    padding-bottom: 10px;
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+
+.simple-form h3 {
+    padding: 5px;
+    text-align: center;
+    font-size: 24px;
+    color: rgb(191, 147, 189);
+    animation: fadeInLetters 1.5s ease-out;
+}
+
+@keyframes fadeInLetters {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.simple-form label {
+    display: inline-block;
+    width: 30%;
+    margin: 1%;
+    text-transform: uppercase;
+}
+
+.simple-form textarea {
+    margin-top: 10px;
+    width: 50%;
+    margin-left: 2%;
+}
+
+.simple-form input {
+    margin: 2%;
+    width: 50%;
+}
+
+.simple-form button {
+    width: auto;
+    margin: 2%;
+}

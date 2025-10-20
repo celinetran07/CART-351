@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Links to stylesheets for pages-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/t1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/t2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/thankyou_t2.css') }}">
+    <title>CART 351 EX TWO</title>
+
+    </head>
+    <body>
+        <header> 
+            <h2> CART 351 EX TWO </h2>
+            <nav>
+                <ul>
+                    <!-- navigation links -->
+                    <li> <a href="{{url_for('index')}}">Home </a> 
+                    </li>
+                    <!-- 1. Add a link in the nav bar to this html page (hint: use url_for() in base.html) -->
+                    <li> <a href="{{url_for('t1')}}">Menu</a>
+                    </li>
+                    <li> <a href="{{url_for('t2')}}">Contact Form</a>
+                    </li>
+                </ul>
+
+                </nav>
+        </header>
+        <main>
+        {% block content %}{% endblock %}
+        </main>
+        <footer>
+            footer info **footer info**
+        </footer>
+    </body>
+</html>

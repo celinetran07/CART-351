@@ -1,0 +1,56 @@
+<!-- 2. Create the specified HTML template - and make sure it inherits from base.html. -->
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="treats-container">
+        <h3>{{ the_topic }}</h3>
+        
+        <!-- The if statement Jinja style -->
+        {% if special_items %}
+            <div class="banner">Today's Special Menu!</div>
+        {% endif %}
+
+        <div class="menu-section">
+           
+            <div class="image-gallery">
+                <img src="{{ url_for('static', filename='images/donut_pink.png') }}" alt="donut_pink">
+                <img src="{{ url_for('static', filename='images/donut_a.png') }}" alt="Donut_a">
+                <img src="{{ url_for('static', filename='images/donut_e.png') }}" alt="donut_e">
+                <img src="{{ url_for('static', filename='images/donut_c.png') }}" alt="donut_c">
+            </div>
+
+            <!-- 3. Pass all the variables to the HTML template. -->
+            <!-- 4. In the html template - make your own *creation*: use all the passed variables, include some of the images from the supplied images folder, (you must use the url_for()) use at least one for loop Jinja style and one if statement Jinja style ... LAYOUT and STYLE is important. -->
+            <div class="menu-content">
+                <p class="message">{{ number_of_donuts }} donuts fresh from the oven</p>
+                
+                <div class="flavors">
+                    <h4>Flavors:</h4>
+                    <ul>
+                    {% for flavour in donut_data.flavours %}
+                        <li>{{ flavour }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="ice-cream">
+                    <h4>Ice Cream Options:</h4>
+                    <ul>
+                    {% for flavor in icecream_flavors %}
+                        <li>{{ flavor }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="toppings">
+                    <h4>Toppings:</h4>
+                    <ul>
+                    {% for topping in donut_data.toppings %}
+                        <li>{{ topping }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

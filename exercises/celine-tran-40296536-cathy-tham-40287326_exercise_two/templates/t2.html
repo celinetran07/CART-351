@@ -1,0 +1,34 @@
+<!-- 2. Create the specified HTML template - and make sure it inherits from base.html. -->
+{% extends "base.html" %}
+
+<!-- 3. Add an HTML form into this template with two text fields, one textarea component, labels, and a submit button. Again, LAYOUT and STYLE is important. -->
+{% block content %}
+    <section class="simple-form">
+        <div class="formContainer">
+            <form action="{{ url_for('thank_you_t2') }}" method="GET">
+                <h3>Contact</h3>
+                <fieldset>
+                    <p>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" size="24" maxlength="40" required>
+                    </p>
+                    
+                    <p>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" size="24" maxlength="40" required>
+                    </p>
+                    
+                    <p>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+                    </p>
+                    
+                    <p>
+                        <label></label>
+                        <button type="submit">Send</button>
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+{% endblock %}

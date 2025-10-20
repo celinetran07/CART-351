@@ -1,0 +1,44 @@
+.thank-you-container { 
+  width: 75%;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f6e3f5;
+  border-left: 8px solid rgb(191, 147, 189);
+}
+
+h3 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.message-display {
+  padding: 15px;
+  background: white;
+  border-bottom: 2px solid rgb(191, 147, 189);
+}
+
+/* Smooth typing effect (no blinking cursor) */
+.transformed-text {
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  display: inline-block;
+  animation: typing 3s steps(30) forwards;
+}
+
+@keyframes typing {
+  to { width: 100%; }
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 15px;
+  color: rgb(191, 147, 189);
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
