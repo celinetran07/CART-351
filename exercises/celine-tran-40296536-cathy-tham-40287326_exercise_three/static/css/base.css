@@ -1,0 +1,142 @@
+*{
+    margin:0;
+     padding:0;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+   
+}
+h2{
+
+    font-size:32px;
+    padding:5px;
+    background-color:rgb(167, 69, 112);
+    color: rgb(255,255,255);
+}
+nav{
+    padding-bottom:5px;
+    background-color:rgb(167, 69, 112);
+}
+nav ul{
+    display:flex;
+    justify-content:right;
+  
+}
+nav ul li{
+    width:10%;
+    text-transform: uppercase;
+    text-decoration: none;
+    list-style-type: none;
+
+      
+}
+nav li a{
+text-decoration: none;
+color:rgb(255, 255, 255);
+}
+
+main{
+    margin: 10px;
+     background-color: rgb(229, 243, 245);
+     min-height:calc(75vh);
+}
+
+footer{
+     background-color:rgb(167, 69, 112);
+       min-height:5vh;
+       padding:5px;
+       color: rgb(255,255,255);
+
+}
+
+/* Styles for T2 */
+h3 {
+    text-align: center;
+    color: rgb(167, 69, 112);
+    margin: 20px;
+}
+
+.donuts {
+     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.donut {
+     text-align: center;
+    cursor: pointer;
+    padding: 15px;
+    border: 3px solid transparent;
+    border-radius: 10px;
+}
+
+.donut:hover {
+    background-color: #f5f5f5;
+}
+
+.donut.selected {
+     border-color: rgb(167, 69, 112);
+    background-color: #ffe9f0;
+}
+
+.donut img {
+    width: 80px;
+    height: 80px;
+}
+.donut p {
+    margin-top: 8px;
+}
+
+textarea {
+    width: 80%;
+    padding: 10px;
+    display: block;
+    margin: 20px auto;
+}
+
+button {
+    padding: 10px 25px;
+    background-color: rgb(167, 69, 112);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+
+.message {
+    margin: 20px;
+    padding: 15px;
+    text-align: center;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.hidden {
+    display: none;
+}
+
+.notes-wall {
+    padding: 15px;
+    margin: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.note {
+    background: #ffe9f0;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}

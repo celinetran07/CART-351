@@ -1,0 +1,59 @@
+<!-- will be a child of base-->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h3>Pick Your Favorite Donut!</h3>
+    <!-- Donut Selection Grid -->
+    <div class="donuts">
+        <div class="donut" data-name="Classic Glazed">
+            <img src="../static/images/donut_a.png" alt="Donut A">
+            <p>Classic Glazed</p>
+        </div>
+        <div class="donut" data-name="Chocolate">
+            <img src="../static/images/donut_b.png" alt="Donut B">
+            <p>Chocolate</p>
+        </div>
+        <div class="donut" data-name="Peach">
+            <img src="../static/images/donut_c.png" alt="Donut C">
+            <p>Peach</p>
+        </div>
+        <div class="donut" data-name="Pumpkin">
+            <img src="../static/images/donut_d.png" alt="Donut D">
+            <p>Pumpkin</p>
+        </div>
+        <div class="donut" data-name="Bubblegum">
+            <img src="../static/images/donut_e.png" alt="Donut E">
+            <p>Bubblegum</p>
+        </div>
+        <div class="donut" data-name="Blueberry Ice">
+            <img src="../static/images/donut_f.png" alt="Donut F">
+            <p>Blueberry Ice</p>
+        </div>
+        <div class="donut" data-name="Strawberry">
+            <img src="../static/images/donut_pink.png" alt="Donut pink">
+            <p>Strawberry</p>
+        </div>
+        <div class="donut" data-name="Lemon Filled">
+            <img src="../static/images/donut_sprinkles.png" alt="Donut Sprinkles">
+            <p>Lemon Filled</p>
+        </div>
+    </div>
+    
+    <!-- Comment Section -->
+    <div class="comment-section">
+        <textarea id="comment" placeholder="Tell us why you like this donut..."></textarea>
+        <button id="submitBtn" disabled>Submit</button>
+    </div>
+
+    <!-- Message Display -->
+    <div id="message" class="message hidden"></div>
+
+    <!-- Notes Wall -->
+    <h3>Community Donut Wall</h3>
+    <div id="notesWall" class="notes-wall"></div>
+</div>
+
+<script src="../static/js/t2.js"></script>
+{% endblock %}
