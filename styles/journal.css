@@ -101,6 +101,15 @@ a:hover {
   box-shadow: 0 0 25px #b366ff;
 }
 
+.entry-image {
+  width: 50%;
+  height: auto;
+  display: block; 
+  margin: 15px auto;
+  border: 1px solid #6a00ff;
+  box-shadow: 0 0 15px #6a00ff;
+}
+
 .journal-entry {
   border: 1px solid #6a00ff;
   padding: 30px;
