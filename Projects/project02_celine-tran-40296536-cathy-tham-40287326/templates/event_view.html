@@ -1,0 +1,56 @@
+<!-- will be a child of base-->
+{% extends "base.html" %}
+<!-- js for this page-->
+{% block scriptblock %}
+<!--Pass event data to JavaScript-->
+<script>
+  const EVENT_ID = "{{ event.id }}";
+  const START_TIME = "{{ event.start_time }}";
+  const END_TIME = "{{ event.end_time }}";
+  let eventDates = JSON.parse(`{{ event.dates | tojson | safe }}`);
+</script>
+
+<script src="{{ url_for('static', filename='js/event_view.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="event-header">
+  <h2>{{ event.name }}</h2>
+  <button id="copyLinkBtn" data-link="{{ request.host_url }}event/{{ event.id }}">
+    Copy Link
+  </button>
+</div>
+
+<hr>
+
+<!-- Add Availability Button -->
+<button id="addAvailabilityBtn">Add Availability</button>
+
+<!-- Input Name Modal -->
+<div id="nameModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <h3>Enter your name</h3>
+    <input type="text" id="modalNameInput" placeholder="Your name">
+    <button id="modalSubmitBtn">Start</button>
+  </div>
+</div>
+
+<!-- Selected Dates Display -->
+<h3>Selected Dates</h3>
+<div id="selectedDatesDisplay"></div>
+
+<h3>Select Times</h3>
+<div id="timeGrid"></div>
+
+<br>
+<!--Save btn-->
+<button id="saveBtn">Save</button>
+<button id="cancelBtn">Cancel</button>
+
+<!-- Responses Section -->
+<h3>Responses</h3>
+<div id="responses"></div>
+
+{% endblock %}

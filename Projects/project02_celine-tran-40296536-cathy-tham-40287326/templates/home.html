@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+<h2>Make Decision Together</h2>
+
+<p>Making plans with friends shouldn't be stressful. Split Decision helps your group choose where to go, what to do, or
+  when to meet quickly and fairly. No more endless group chats or indecisive back and forths.
+  </br>Just simple, shared decisions everyone can agree on!</p>
+
+<div class="home-buttons">
+
+  <div>
+    <a class="btn btn-how">
+      How It Works
+    </a>
+    <p>Learn how to create events and mark your availability.</p>
+  </div>
+
+  <div>
+    <a class="btn btn-decide">
+      Let's Decide!
+    </a>
+    <p>Quickly choose a group option and see what everyone prefers.</p>
+  </div>
+
+  <div>
+    <a class="btn btn-quiz">
+      Random Decision Quiz
+    </a>
+    <p>Answer a fun quiz to get a random decision or suggestion.</p>
+  </div>
+
+  <div>
+    <a class="btn btn-create" href="{{ url_for('create') }}">
+      When Are You Free?
+    </a>
+    <p>Start a new event and pick dates and times for your friends.</p>
+  </div>
+
+</div>
+
+{% endblock %}

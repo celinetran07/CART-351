@@ -1,0 +1,38 @@
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+  border: 2px solid var(--brown);
+  border-radius: 30px;
+  box-shadow: var(--brown) 4px 4px 0 0;
+  color: var(--brown);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 0 20px;
+  line-height: 42px;
+  display: inline-block;
+  transition: 0.15s ease;
+}
+
+.btn:hover {
+  background-color: #fff7cc;
+}
+
+.btn:active{
+    transform: translate(2px, 2px);
+    box-shadow: var(--brown) 2px 2px 0 0;
+}
+
+.home-buttons p {
+    margin: 5px 0 0 0;
+    font-size: 0.9em;
+    color: gray;
+}
+
+a {
+  text-decoration: none;
+}

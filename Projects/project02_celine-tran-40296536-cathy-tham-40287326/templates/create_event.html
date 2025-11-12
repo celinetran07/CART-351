@@ -1,0 +1,78 @@
+<!-- will be a child of base-->
+{% extends "base.html" %}
+<!-- js for this page-->
+{% block scriptblock %}
+  <script src="{{ url_for('static', filename='js/create_event.js') }}"></script>
+{% endblock %}
+{% block content %}
+
+<h2>Create New Event</h2>
+
+<form id="createEventForm">
+
+  <!-- Event name -->
+  <input type="text" name="name" required placeholder="Enter Event Name">
+
+  <!-- Time range -->
+  <h3>Select Time Range</h3>
+  <div class="time-range-row">
+
+    <div>
+      <label>Start Time:</label>
+      <select name="start_time" required>
+        {% for hour in range(0, 24) %}
+        <!-- Default start time at 9 AM -->
+        <option value="{{ hour }}" {% if hour==9 %}selected{% endif %}>
+          {{ hour }}:00
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div>
+      <label>End Time:</label>
+      <select name="end_time" required>
+        {% for hour in range(1, 25) %}
+        <!-- Default end time at 5 PM -->
+        <option value="{{ hour }}" {% if hour==17 %}selected{% endif %}>
+          {{ hour }}:00
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+    
+  </div>
+
+  <!-- Date selection -->
+  <h3>Select Dates</h3>
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <button id="prevMonth" type="button">
+        <i class="fa-solid fa-angle-left"></i>
+      </button>
+      <h3 id="monthLabel"></h3>
+      <button id="nextMonth" type="button">
+        <i class="fa-solid fa-angle-right"></i>
+      </button>
+    </div>
+
+    <div id="calendarWeekHeader" class="week-header">
+      <div>S</div>
+      <div>M</div>
+      <div>T</div>
+      <div>W</div>
+      <div>T</div>
+      <div>F</div>
+      <div>S</div>
+    </div>
+
+    <div id="calendarGrid" class="calendar-grid"></div>
+  </div>
+
+  <button type="submit">Create Event</button>
+</form>
+
+
+<div id="createdResult"></div>
+
+{% endblock %}

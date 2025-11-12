@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="eng">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Split Decision</title>
+  <!-- icons from font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  {% block scriptblock %}
+  {% endblock %}
+
+</head>
+
+<body>
+  <header>
+    <h1>Split Decision</h1>
+    <nav>
+      <a href="{{ url_for('create') }}">When Are You Free?</a>
+      <a href="{{ url_for('home') }}">Home</a>
+    </nav>
+  </header>
+
+  <main class="bg-morning-haze">
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+
+</html>

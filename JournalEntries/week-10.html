@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 10 - CART 351 Journal</title>
+    <link rel="stylesheet" href="../styles/journal.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../journal.html" class="nav-back">← Back to Journal</a>
+            <h1>Week 10</h1>
+            <p>November 10 - November 14, 2025</p>
+        </header>
+
+        <article class="journal-entry">
+            <div class="entry-content">
+          
+                 <p>
+                    This week we learned how to connect Flask with MongoDB. The in-class tutorial walked us through setting up a MongoDB Atlas cluster, configuring environment variables, and securely connecting the database to our Flask app. We practiced inserting, retrieving, and updating data from a collection, and explored how to use logical operators for filtering results. It was interesting to see how Flask can dynamically communicate with a live database in the cloud instead of relying on static files.
+                </p>
+
+                <h3>Reflections</h3>
+                <p>
+                    I already had prior experience working with databases, including MongoDB, so this week's lesson felt more familiar and straightforward for me. Setting up the environment variables and connecting Flask to MongoDB using <code>MONGO_URI</code> was something I had done before, but this time I understood more clearly how Flask handles the connection through <code>Flask-PyMongo</code>. The hands-on exercises helped reinforce my understanding of CRUD operations in a web app context. This week also made me think about how I could apply these concepts to my current project. Right now, my <strong>Split Decision</strong> app with Cathy stores user data in JSON files, but i'm thinking about switching to a database instead in the near future, maybe for project 3 or for my other class project. Using MongoDB would make the data storage more scalable and secure, and it could help us better manage user interactions.
+                </p>
+            </div>
+        </article>
+
+        <nav class="week-nav">
+            <a href="week-9.html" class="prev">← Week 9</a>
+            <a href="#" class="disabled next">Week 10 →</a>
+        </nav>
+
+        <footer>
+            <p>CART 351 Weekly Journal</p>
+            <p>&copy; 2025 Celine Tran</p>
+        </footer>
+    </div>
+
+    <script src="../scripts/journal.js"></script>
+</body>
+</html>
