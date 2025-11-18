@@ -108,7 +108,7 @@ def delete_availability(event_id):
 
     return jsonify({"status": "deleted"})
 
-
+#This route returns the summary of availabilities for a given event
 @app.route("/api/event/<event_id>/summary")
 def summary(event_id):
     all_data = read_json(AVAIL_FILE, {})
