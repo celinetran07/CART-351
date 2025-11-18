@@ -42,6 +42,10 @@ body::after {
   background: rgba(10, 0, 30, 0.2);
 }
  
+.entry-content {
+  font-size:large;
+}
+
 .week-nav {
   display: flex;
   justify-content: space-between;

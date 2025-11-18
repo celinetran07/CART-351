@@ -15,23 +15,31 @@
         </header>
 
         <article class="journal-entry">
-            <div class="entry-content">
-          
-                 <p>
-                    i didnt notice my links were broken until i finally checked my github deployed page today. everything worked fine on my local machine so i didnt double check the links. fixed now.
-                    This week we learned how to connect Flask with MongoDB. The in-class tutorial walked us through setting up a MongoDB Atlas cluster, configuring environment variables, and securely connecting the database to our Flask app. We practiced inserting, retrieving, and updating data from a collection, and explored how to use logical operators for filtering results. It was interesting to see how Flask can dynamically communicate with a live database in the cloud instead of relying on static files.
+             <div class="entry-content">
+                <p>
+                    This week we learned how to use <strong>Flask-SocketIO</strong> to build real-time, interactive web applications. WebSockets allow continuous two-way communication between the client and the server without needing to constantly refresh or send repeated requests. We created an example chat application that used SocketIO to connect multiple users at once, where each client could send messages instantly broadcasted to everyone else. Later, we expanded on this idea by connecting it with a <strong>p5.js</strong> sketch to create a collaborative visualization using flowers that reacts to multiple users interacting at the same time.
                 </p>
 
                 <h3>Reflections</h3>
                 <p>
-                    I already had prior experience working with databases, including MongoDB, so this week's lesson felt more familiar and straightforward for me. Setting up the environment variables and connecting Flask to MongoDB using <code>MONGO_URI</code> was something I had done before, but this time I understood more clearly how Flask handles the connection through <code>Flask-PyMongo</code>. The hands-on exercises helped reinforce my understanding of CRUD operations in a web app context. This week also made me think about how I could apply these concepts to my current project. Right now, my <strong>Split Decision</strong> app with Cathy stores user data in JSON files, but i'm thinking about switching to a database instead in the near future, maybe for project 3 or for my other class project. Using MongoDB would make the data storage more scalable and secure, and it could help us better manage user interactions.
+                    I found this week's topic very engaging because it added a new layer of interactivity to everything we've built so far. Seeing how real-time data could be shared across multiple users reminded me of multiplayer games or collaborative art tools, where actions update live for everyone.
+                </p>
+                <br>
+                <p>
+                    Outside of class, I discovered that some of my links were broken on my GitHub Pages site. Everything had worked perfectly on my local machine, so I hadn't thought to double-check the deployed version. After inspecting the issue, I realized it was a path case-sensitivity problem, which I quickly fixed. Now, all my project and exercise links are working properly again.
+                </p>
+<br>
+                <p>
+                    I also completed <strong>Exercise 4</strong>, where I reviewed several classmates' projects and wrote down my thoughts and feedback in a reflection document. You can view it here: 
+                    <a href="../Exercises/celine-tran-40286536-exercise_four/exercise_four.pdf">Exercise 4 – Project Reviews</a>.
+                    It was really inspiring to see how other students approached their ideas differently, both in concept and in execution. It gave me a lot of insight into how varied Flask projects can be when creativity meets technical design.
                 </p>
             </div>
         </article>
 
         <nav class="week-nav">
-            <a href="week-9.html" class="prev">← Week 9</a>
-            <a href="#" class="disabled next">Week 10 →</a>
+            <a href="week-10.html" class="prev">← Week 10</a>
+            <a href="#" class="disabled next">Week 12 →</a>
         </nav>
 
         <footer>
