@@ -140,7 +140,6 @@ def three():
 def four():
     # four: Select all entries and sort them by event_name
     results = mongo.db.dataStuff.find().sort("event_name", 1)
-    
     return {"results": results, "events": event_names}
 
 
