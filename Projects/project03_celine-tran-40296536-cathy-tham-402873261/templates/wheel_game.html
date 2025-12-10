@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/wheel_game.css') }}">
+{% endblock %}
+
+{% block scriptblock %}
+<script>
+  const DECISION_ID = "{{ decision_id }}";
+</script>
+<script src="{{ url_for('static', filename='js/wheel_game.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="inner_box">
+
+      <div class="event-header">
+        <div>
+            <h1>Spin The Global Wheel</h1>
+            </button>
+        </div>
+      </div>
+
+      <hr>
+
+      <p>
+        Spin the wheel! Let chance pick the winning option to help your group make a quick and fair decision.
+      </p>
+
+      <div>
+        <div class="editBox">
+          <h2 id="wheelTitleDisplay">Loading...</h2>
+
+          <button id="editTitleBtn" class="edit-icon-btn" title="Edit title">
+            <i class="fa-solid fa-pencil"></i>
+          </button>
+        </div>
+
+      <div id="editTitleBox" class="edit-title-box" style="display: none;">
+        <input 
+          type="text" 
+          id="wheelTitleInput" 
+          placeholder="Enter wheel title"
+          class="form-control"
+        >
+        <button id="saveTitleBtn" class="btn btn-sm btn-secondary">
+          Save Title
+        </button>
+      </div>
+
+      <div id="wheelContainer" class="text-center">
+        <canvas id="wheelCanvas"></canvas>
+      </div>
+
+      <button id="spinBtn" class="game-btn" type="button">SPIN</button>
+
+      <div id="resultDisplay"></div>
+
+      <h4 class="subtitle">Options</h4>
+      <ul id="optionsList"></ul>
+
+      <div id="optionError" class="error-text hidden"></div>
+
+      <div class="add-option-row">
+        <input type="text" id="newOptionInput" placeholder="Add new option">
+        <button id="addOptionBtn" type="button">Add</button>
+      </div>
+
+    </div>
+
+    <h4 class="subtitle">Leaderboard</h4>
+    <ul id="leaderboardList" class="leaderboard"></ul>
+
+    <div>
+      <button id="toggleHistoryBtn" class="toggle-btn">Show History</button>
+    </div>
+
+    <ul id="historyList" class="history-list hidden"></ul>
+  </div>
+  
+</div>
+{% endblock %}
