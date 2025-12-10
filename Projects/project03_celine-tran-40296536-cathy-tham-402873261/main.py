@@ -1,33 +1,44 @@
-from flask import Flask, render_template, request
-from flask_pymongo import PyMongo
-from dotenv import load_dotenv
+#used to read environment varariables
 import os
+#used to pick random options for the wheel
 import random
+#used for timestamps of spins and createAt field
 from datetime import datetime
+from zoneinfo import ZoneInfo
+#flask:creates the wsgi app, render_template:renders html templates, request:reads request daa used in api post enpoints to get json payload
+from flask import Flask, render_template, request
+#helper to connect flask with MongoDB
+from flask_pymongo import PyMongo
+#loads environment variables from a .env file into the application's environment
+from dotenv import load_dotenv
 
-# Load login information for MongoDB from .env file
+#Load login information for MongoDB from .env file
 load_dotenv()
 db_user = os.getenv("MONGODB_USER")
 db_pass = os.getenv("DATABASE_PASSWORD")
 db_name = os.getenv("DATABASE_NAME")
 
+#create Flask application
 app = Flask(__name__)
 
-# Connect to MongoDB Atlas using the information above
-uri = f"mongodb+srv://{db_user}:{db_pass}@cluster0.ro5k5im.mongodb.net/{db_name}?retryWrites=true&w=majority"
+#Connect to MongoDB Atlas using the information above
+uri = f"mongodb+srv://{db_user}:{db_pass}@cluster0.gkbiu7l.mongodb.net/{db_name}?retryWrites=true&w=majority"
 app.config["MONGO_URI"] = uri
 mongo = PyMongo(app)
 
+#simple print to confirm connection
 print("Connected to MongoDB!")
 
-# GLOBAL WHEEL SETTINGS
-# Every person modifies the *same* wheel.
+#GLOBAL WHEEL SETTINGS
+#constant id for the global wheel
+# Every person modifies the same wheel.
 GLOBAL_WHEEL_ID = "GLOBAL_WHEEL"
 
 # Default starting options when database is empty
 DEFAULT_OPTIONS = ["Ramen", "Takoyaki", "Apple", "Sushi"]
 
-# Create global wheel in database if it doesn't exist
+
+#Create global wheel in database if it doesn't exist
 def ensureWheel():
     wheel = mongo.db.spinTheWheel.find_one({"_id": GLOBAL_WHEEL_ID})
 
@@ -38,24 +49,19 @@ def ensureWheel():
             "options": DEFAULT_OPTIONS,
             "leaderboard": {opt: 0 for opt in DEFAULT_OPTIONS},
             "history": [],    # list of past spins
-            "createdAt": datetime.utcnow()
+            "createdAt": datetime.now(ZoneInfo("America/Toronto")).isoformat()
+
         })
 
+#Ensure global wheel exists on startup
+ensureWheel()
 
-# Route for home page
+#Route for home page
 @app.route("/")
 def home():
-    # make sure global wheel exists
-    ensureWheel()  
     return render_template("home.html")
 
-# Route for about page
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
-
-# Route for the wheel game page
+#Route for the wheel game page
 @app.route("/wheel/<wheel_id>")
 def wheelPage(wheel_id):
     wheel = mongo.db.spinTheWheel.find_one({"_id": wheel_id})
@@ -70,8 +76,8 @@ def wheelPage(wheel_id):
     )
 
 
-# API ROUTES FOR WHEEL OPERATIONS
-# Get wheel's title and list of options
+#API ROUTES FOR WHEEL OPERATIONS
+#Get wheel's title and list of options
 @app.route("/api/wheel/<wheel_id>")
 def api_wheel(wheel_id):
     wheel = mongo.db.spinTheWheel.find_one({"_id": wheel_id})
@@ -115,7 +121,7 @@ def api_add_option(wheel_id):
         {
             # add if not already there
             "$addToSet": {"options": option}, 
-            # new leaderboard entry      
+            # new leaderboard entry
             "$set": {f"leaderboard.{option}": 0}    
         }
     )
@@ -137,7 +143,7 @@ def api_delete_option(wheel_id):
         {
             # remove option and remove history entries
             "$pull": {"options": option, "history": {"result": option}},
-            # remove from leaderboard dictionary
+            # remove from leaderboard dictionary, key-value pair
             "$unset": {f"leaderboard.{option}": ""}
         }
     )
@@ -155,6 +161,7 @@ def api_spin(wheel_id):
 
     options = wheel["options"]
 
+    #checjs if options is empty
     if len(options) == 0:
         return {"error": "No options available"}, 400
 
@@ -168,7 +175,8 @@ def api_spin(wheel_id):
             "$push": {
                 "history": {
                     "result": winner,
-                    "timestamp": datetime.utcnow()
+                    "timestamp": datetime.now(ZoneInfo("America/Toronto")).isoformat()
+
                 }
             },
             "$inc": {f"leaderboard.{winner}": 1}
@@ -192,11 +200,12 @@ def api_history(wheel_id):
     history.sort(key=lambda h: h["timestamp"], reverse=True)
 
     # Convert datetime into readable strings
+    #do this because json can't contain python datetime objects
     cleaned = []
     for h in history:
         cleaned.append({
             "result": h["result"],
-            "timestamp": h["timestamp"].isoformat() + "Z"
+            "timestamp": h["timestamp"]
         })
 
     # Only return last 30 spins
@@ -214,6 +223,8 @@ def api_leaderboard(wheel_id):
     board = wheel.get("leaderboard", {})
 
     # sort by wins
+    #converts the dictionary into a list of dictionaries with option and wins keys
+    #then sorts that list based on the wins in descending order
     sorted_board = sorted(
         [{"option": k, "wins": v} for k, v in board.items()],
         key=lambda x: x["wins"],
@@ -223,4 +234,5 @@ def api_leaderboard(wheel_id):
     return {"leaderboard": sorted_board}
 
 # Start Flask server
-app.run(debug=True)
+
+

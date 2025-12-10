@@ -395,16 +395,18 @@ function renderLeaderboard(leaderboardData) {
 // function to render the spin history
 function renderHistory(data) {
   const list = document.getElementById("historyList");
-  list.innerHTML = data.length
-    ? data
-        .map((h) => {
-          const date = h.timestamp
-            ? new Date(h.timestamp.replace(" ", "T")).toLocaleDateString()
-            : "";
-          return `<li>${h.result} — ${date}</li>`;
-        })
-        .join("")
-    : "<li>No spins yet.</li>";
+
+  if (!data.length) {
+    list.innerHTML = "<li>No spins yet.</li>";
+    return;
+  }
+
+  list.innerHTML = data
+    .map((h) => {
+      const ts = new Date(h.timestamp).toLocaleString();
+      return `<li>${h.result} — ${ts}</li>`;
+    })
+    .join("");
 }
 
 // load everything when page is ready
