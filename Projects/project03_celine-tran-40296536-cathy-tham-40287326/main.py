@@ -234,5 +234,5 @@ def api_leaderboard(wheel_id):
     return {"leaderboard": sorted_board}
 
 # Start Flask server
-
+app.run(debug=True)
 
